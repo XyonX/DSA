@@ -1,0 +1,31 @@
+cmake --build .\Build // build from the root
+file(GLOB_RECURSE SOURCES "Source/src/*.cpp")
+file(GLOB_RECURSE HEADERS "Source/include/*.h")
+
+add_executable(MyAPP ${SOURCES} ${HEADERS})
+target_include_directories(MyAPP PRIVATE "Source/include")
+add_executable_with_includes(Array_Dynamic)
+
+# Top-level CMakeLists.txt
+cmake_minimum_required(VERSION 3.10)
+
+project(DSA)
+
+# Compile the array program
+add_subdirectory(Source/src/array)
+
+# Compile the dragon program
+add_subdirectory(Source/src/dragon)
+
+
+# Source/src/array/CMakeLists.txt
+add_executable(Array_Dynamic "array_Dynamic.cpp")
+target_include_directories(Array_Dynamic PRIVATE "../include")
+
+# Source/src/dragon/CMakeLists.txt
+add_executable(Dragon "Dragon.cpp" "main.cpp")
+target_include_directories(Dragon PRIVATE "../include")
+
+Source/include/Classes
+
+add_executable(Array_Dynamic ${SOURCES_DRAGON} ${HEADERS_DRAGON})
